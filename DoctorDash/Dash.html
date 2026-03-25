@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DASHBOARD</title>
+    <link rel="stylesheet" href="./DshStyle.css">
+</head>
+
+<body>
+ <div class="dashboard-container">
+    <nav class="sidebar">
+        <h2 class="logo">HEALTH FITI</h2>
+        <div class="role-tag">Doctor Portal</div>
+        <ul>
+            <li class="active" onclick="window.location.href='./Dash.html'">Doctor Dashboard</li>
+            <li onclick="window.location.href='../PatientDash/Patient.html'">Patient Records</li>
+            <li onclick="window.location.href='../Appointments/Appointments.html'">Appointments</li>
+            <li onclick="window.location.href='./Dash.html'">Prescriptions</li>
+        </ul>
+       <button class="logout-btn" onclick="logout()">Logout</button>
+    </nav>
+
+    <main class="main-content">
+        <header class="dashboard-header">
+            <div>
+                <h1>Dr. Kimani's Dashboard</h1>
+                <p>Monday, March 23, 2026</p>
+            </div>
+            <div class="status-badge">Available</div>
+        </header>
+
+        <section class="stats-grid">
+            <div class="stat-card">
+                <h3>Total Patients</h3>
+                <p class="value" id="totalPatients">0</p> 
+            </div>
+            <div class="stat-card">
+                <h3>Today's Appts</h3>
+                <p class="value">8</p>
+            </div>
+            <div class="stat-card highlight">
+                <h3>Pending Reports</h3>
+                <p class="value">3</p>
+            </div>
+        </section>
+
+        <section class="admin-controls">
+            <h3>Register New Appointment</h3>
+            <div class="input-row">
+                <input type="time" id="newTime">
+                <input type="text" id="newName" placeholder="Patient Name">
+                <input type="text" id="newReason" placeholder="Reason">
+                <button onclick="handleAddPatient()" class="add-btn">Add Record</button>
+            </div>
+        </section>
+
+        <section class="table-container">
+            <h3>Upcoming Appointments</h3>
+            <table class="doctor-table">
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Patient Name</th>
+                        <th>Reason</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="appointmentList">
+                    </tbody>
+            </table>
+        </section>
+    </main>
+</div>
+ <script src="./DashJS.js"></script>
+ <script src="../App.js"></script>
+</body>
+</html>

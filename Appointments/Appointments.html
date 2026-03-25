@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointments - Health Fiti</title>
+    <link rel="stylesheet" href="./ApStyle.css">
+</head>
+<body>
+<div class="dashboard-container">
+    <nav class="sidebar">
+        <h2 class="logo">HEALTH FITI</h2>
+        <div class="role-tag">Doctor Portal</div>
+        <ul>
+            <li onclick="location.href='../DoctorDash/Dash.html'">Doctor Dashboard</li>
+            <li onclick="location.href='../PatientDash/Patient.html'">Patient Records</li>
+            <li class="active">Appointments</li>
+            <li>Prescriptions</li>
+        </ul>
+        <button class="logout-btn" onclick="logout()">Logout</button>
+    </nav>
+
+    <main class="main-content">
+        <header class="dashboard-header">
+            <h1>Schedule & Appointments</h1>
+            <div class="status-badge">March 25, 2026</div>
+        </header>
+
+        <section class="admin-controls">
+            <h3>Schedule New Appointment</h3>
+            <div class="input-row">
+                <input type="date" id="apptDate">
+                <input type="time" id="apptTime">
+                <input type="text" id="apptPatient" placeholder="Patient Name">
+                <select id="apptType">
+                    <option value="Consultation">Consultation</option>
+                    <option value="Follow-up">Follow-up</option>
+                    <option value="Emergency">Emergency</option>
+                </select>
+                <button onclick="bookAppointment()" class="add-btn">Book Now</button>
+            </div>
+        </section>
+
+        <section class="table-container">
+            <h3>Upcoming Schedule</h3>
+            <table class="doctor-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Patient</th>
+                        <th>Type</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="fullAppointmentList">
+                    </tbody>
+            </table>
+        </section>
+    </main>
+</div>
+<script src="./appointments.js"></script>
+<script src="../App.js"></script>
+</body>
+</html>
