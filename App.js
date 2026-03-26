@@ -18,3 +18,21 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+// Central Navigation Function
+function navigateTo(page) {
+    const routes = {
+        'dashboard': '../DoctorDash/Dash.html',
+        'appointments': '../Appointments/Appointments.html',
+        'prescriptions': '../PrescriptionsDash/Prescriptions.html',
+        'patients': '../PatientDash/Patient.html',
+        'login': '../LoginPage/Login.html'
+    };
+
+    const target = routes[page.toLowerCase()];
+
+    if (target) {
+        window.location.href = target;
+    } else {
+        console.error("Route not found: " + page);
+    }
+}

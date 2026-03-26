@@ -12,11 +12,11 @@
     <nav class="sidebar">
         <h2 class="logo">HEALTH FITI</h2>
         <div class="role-tag">Doctor Portal</div>
-        <ul>
-            <li class="active" onclick="window.location.href='./Dash.html'">Doctor Dashboard</li>
-            <li onclick="window.location.href='../PatientDash/Patient.html'">Patient Records</li>
-            <li onclick="window.location.href='../Appointments/Appointments.html'">Appointments</li>
-            <li onclick="window.location.href='./Dash.html'">Prescriptions</li>
+         <ul>
+          <li onclick="navigateTo('dashboard')">Doctor Dashboard</li>
+          <li onclick="navigateTo('patients')">Patient Records</li>
+          <li onclick="navigateTo('appointments')">Appointments</li>
+          <li onclick="navigateTo('prescriptions')">Prescriptions</li>
         </ul>
        <button class="logout-btn" onclick="logout()">Logout</button>
     </nav>

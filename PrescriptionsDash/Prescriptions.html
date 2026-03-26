@@ -1,0 +1,67 @@
+<link rel="stylesheet" href="PresCs.css" />
+<div class="dashboard-container">
+    <nav class="sidebar">
+        <h2 class="logo">HEALTH FITI</h2>
+        <div class="role-tag">Doctor Portal</div>
+    <ul>
+          <li onclick="navigateTo('dashboard')">Doctor Dashboard</li>
+          <li onclick="navigateTo('patients')">Patient Records</li>
+          <li onclick="navigateTo('appointments')">Appointments</li>
+          <li onclick="navigateTo('prescriptions')">Prescriptions</li>
+    </ul>
+        <button class="logout-btn" onclick="logout()">Logout</button>
+    </nav>
+
+    <main class="main-content">
+        <header class="dashboard-header">
+            <h1>Patient Prescriptions</h1>
+            <div class="status-badge">March 25, 2026</div>
+        </header>
+
+        <section class="admin-controls">
+            <h3>Find or Issue Prescription</h3>
+            <div class="input-row">
+                <input type="text" id="searchPatient" placeholder="Search Patient Name...">
+                <input type="text" id="medication" placeholder="Medication Name">
+                <input type="text" id="dosage" placeholder="Dosage (e.g. 500mg)">
+                <button class="add-btn">Issue New</button>
+            </div>
+        </section>
+
+        <section class="table-container">
+            <h3>Recent Prescriptions</h3>
+            <table class="doctor-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Doctor</th>
+                        <th>Patient</th>
+                        <th>Medication</th>
+                        <th>Diagnosis</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="prescriptionList">
+                    <tr>
+                        <td>2026-03-18</td>
+                        <td>Dr. Sarah Chen</td>
+                        <td>John Doe</td>
+                        <td>Amoxicillin 500mg</td>
+                        <td>Sinus Infection</td>
+                        <td><button class="action-btn">Download PDF</button></td>
+                    </tr>
+                    <tr>
+                        <td>2026-03-10</td>
+                        <td>Dr. Michael Okello</td>
+                        <td>Jane Smith</td>
+                        <td>Paracetamol 1g</td>
+                        <td>Mild Fever</td>
+                        <td><button class="action-btn">Download PDF</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+</div>
+
+<script src="../App.js"></script>
