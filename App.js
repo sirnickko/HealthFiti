@@ -1,3 +1,18 @@
+//function for locking out user from logging in from url
+function checkAccess(requiredRole) {
+    const isLoggedIn = sessionStorage.getItem('isLoggedIn');
+    const userRole = sessionStorage.getItem('userRole');
+
+    if (!isLoggedIn) {
+        // Not logged in at all? Back to login page.
+        window.location.href = "../LoginPage/Login.html";
+    } else if (requiredRole && userRole !== requiredRole) {
+        // Logged in but wrong role? Deny access.
+        alert("Access Denied: You do not have permission to view this page.");
+        window.location.href = "../LoginPage/Login.html";
+    }
+}
+
 // This function will be available to any page that links this script
 function logout() {
     if (confirm("Are you sure you want to logout?")) {
@@ -25,7 +40,8 @@ function navigateTo(page) {
         'appointments': '../Appointments/Appointments.html',
         'prescriptions': '../PrescriptionsDash/Prescriptions.html',
         'patients': '../PatientDash/Patient.html',
-        'login': '../LoginPage/Login.html'
+        'login': '../LoginPage/Login.html',
+        'signup': '../SignUp/Sign Up Page.html'
     };
 
     const target = routes[page.toLowerCase()];
@@ -36,3 +52,26 @@ function navigateTo(page) {
         console.error("Route not found: " + page);
     }
 }
+const mockDatabase = [
+        { user: "ian_kimani", pass: "doc123", role: "DOCTOR" },
+        { user: "john_doe", pass: "pat123", role: "PATIENT" }
+    ];
+
+const foundUser = mockDatabase.find(u => u.user === user && u.pass === pass);
+
+if (foundUser) {
+        // 2. CREATE A SESSION (This is the security layer)
+        sessionStorage.setItem('isLoggedIn', 'true');
+        sessionStorage.setItem('userRole', foundUser.role);
+        
+        // 3. Redirect based on the HIDDEN role
+        if (foundUser.role === "DOCTOR") {
+            navigateTo('dashboard');
+        } else {
+            navigateTo('patientdashboard');
+        }
+    } else {
+        showError("Invalid credentials.");
+    }
+
+

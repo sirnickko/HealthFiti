@@ -44,3 +44,27 @@ function switchTab(tabIndex) {
     const dateInput = document.getElementById('date');
     if (dateInput) dateInput.value = today;
 };
+// Initialize count from Storage or start at 0
+let apptCount = localStorage.getItem('userApptCount') || 0;
+
+// Listen for the form submission
+document.getElementById('appointmentForm').addEventListener('submit', function(e) {
+    e.preventDefault(); // Stop page from refreshing
+
+    // 1. Increment the count
+    apptCount++;
+    
+    // 2. Save to local storage
+    localStorage.setItem('userApptCount', apptCount);
+
+    // 3. Update the modal text and show it
+    document.getElementById('apptCountDisplay').innerText = apptCount;
+    document.getElementById('countModal').style.display = 'flex';
+
+    // 4. Optional: Clear the form
+    this.reset();
+});
+
+function closeModal() {
+    document.getElementById('countModal').style.display = 'none';
+}

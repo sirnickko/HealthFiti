@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Health Fiti Login</title>
     <link rel="stylesheet" href="./Login.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <div class="card">
@@ -14,16 +15,26 @@
             User invalid or not found
         </div>
         <div class="input-group">
-            <input type="text" id="username" placeholder="Username">
-            <input type="password" id="password" placeholder="Password">
+            <div class="input-container">
+                <i class="fa-solid fa-user icon"></i>
+                <input type="text" id="username" placeholder="Username">
+            </div>
+            <div class="input-container">
+                <i class="fa-solid fa-lock icon"></i>
+                <input type="password" id="password" placeholder="Password">
+            </div>
         </div>
 
         <div class="button-group">
             <button id="loginBtn" class="btn">Login</button>
-            <button id="signupBtn" class="btn">Sign Up</button>
         </div>
+        <p class="signup-text">
+           Are you a new user? <a href="javascript:void(0)" onclick="navigateTo('signup')">Sign up</a>
+        </p>
+        
     </div>
 
     <script src="./JSlogin.js"></script>
+    <script src="../App.js"></script>
 </body>
 </html>
